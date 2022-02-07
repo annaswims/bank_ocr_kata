@@ -3,6 +3,8 @@
 This repository contains User Stories 1-3, as described below. 
 It takes a file of account numbers written using pipes and underscores and prints out the account number to the console, and annotates any illegible numbers or invalid checksum. 
 
+It's written in ruby and has been tested with ruby version 2.6 and above.
+
 Run with:
 `bin/ocr spec/fixtures/sample_file`
 
