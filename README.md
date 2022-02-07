@@ -1,0 +1,1 @@
+bin/ocr spec/fixtures/sample_file

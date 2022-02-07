@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift("#{__dir__}/../lib")
+
+require 'ocr'
+
+if ARGV.length.empty?
+  puts "add a file path as an arguement i.e. 'bin/ocr spec/fixtures/sample_file'"
+  exit
+end
+
+acct_parser = Ocr::FileParser.new(ARGV[0])
+
+output = acct_parser.process_file do |account_number|
+  invalid_text = Ocr::Account.new(account_number).invalid_text
+  [account_number, invalid_text].join(' ')
+end
+
+puts output
