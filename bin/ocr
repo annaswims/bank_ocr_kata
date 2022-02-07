@@ -5,7 +5,7 @@ $LOAD_PATH.unshift("#{__dir__}/../lib")
 
 require 'ocr'
 
-if ARGV.length.empty?
+if ARGV.length == 0
   puts "add a file path as an arguement i.e. 'bin/ocr spec/fixtures/sample_file'"
   exit
 end
