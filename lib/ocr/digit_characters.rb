@@ -34,8 +34,16 @@ module Ocr
                       '|_|'\
                       ' _|' => 9 }.freeze
 
+    DIGITS_TO_STR = Ocr::DigitCharacters::STR_TO_DIGITS.invert
+
     def self.characters_to_digit(str)
       STR_TO_DIGITS[str] || ILLEGIBLE_DIGIT
+    end
+
+    def self.fuzzy_matches_digits(str)
+      (0..9).select do |n|
+        DidYouMean::Levenshtein.distance(DIGITS_TO_STR[n], str) <= 1
+      end
     end
   end
 end
